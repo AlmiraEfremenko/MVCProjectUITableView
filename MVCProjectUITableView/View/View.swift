@@ -16,6 +16,7 @@ class TableView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifire)
+        tableView.register(SwitchViewCell.self, forCellReuseIdentifier: SwitchViewCell.identifier)
         
         return tableView
     }()

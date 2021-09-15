@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		043E57A526F241FF004FEBAE /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E57A426F241FF004FEBAE /* TableViewCell.swift */; };
+		043E57A726F24466004FEBAE /* SwitchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E57A626F24466004FEBAE /* SwitchViewCell.swift */; };
 		044A26AB26F103AD007ADEB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A26AA26F103AD007ADEB9 /* AppDelegate.swift */; };
 		044A26AD26F103AD007ADEB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A26AC26F103AD007ADEB9 /* SceneDelegate.swift */; };
 		044A26AF26F103AD007ADEB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A26AE26F103AD007ADEB9 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		043E57A426F241FF004FEBAE /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		043E57A626F24466004FEBAE /* SwitchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewCell.swift; sourceTree = "<group>"; };
 		044A26A726F103AD007ADEB9 /* MVCProjectUITableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVCProjectUITableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		044A26AA26F103AD007ADEB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		044A26AC26F103AD007ADEB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				044A26C326F10C65007ADEB9 /* View.swift */,
 				043E57A426F241FF004FEBAE /* TableViewCell.swift */,
+				043E57A626F24466004FEBAE /* SwitchViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				044A26AB26F103AD007ADEB9 /* AppDelegate.swift in Sources */,
 				044A26C426F10C65007ADEB9 /* View.swift in Sources */,
 				044A26C626F10C72007ADEB9 /* TableViewController.swift in Sources */,
+				043E57A726F24466004FEBAE /* SwitchViewCell.swift in Sources */,
 				044A26AD26F103AD007ADEB9 /* SceneDelegate.swift in Sources */,
 				043E57A526F241FF004FEBAE /* TableViewCell.swift in Sources */,
 				044A26C226F10C59007ADEB9 /* Model.swift in Sources */,

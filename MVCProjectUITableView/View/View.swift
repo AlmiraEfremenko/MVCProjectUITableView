@@ -10,27 +10,32 @@ import UIKit
 class TableView: UIView {
     
     var data = ModelCell.data
+    
     private lazy var tableView: UITableView = {
         var tableView = UITableView(frame: .zero, style: .grouped)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifire)
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.identifier)
         tableView.register(SwitchViewCell.self, forCellReuseIdentifier: SwitchViewCell.identifier)
-        
+        tableView.register(ArrowWithTextViewCell.self, forCellReuseIdentifier: ArrowWithTextViewCell.identifier)
         return tableView
     }()
     
     init() {
         super.init(frame: .zero)
-        setupLayout()
-        setupHierarchy()
+        commonInit()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        commonInit()
     }
     
+    func commonInit() {
+        setupHierarchy()
+        setupLayout()
+    }
     
     private func setupHierarchy() {
         addSubview(tableView)
@@ -56,9 +61,48 @@ extension TableView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        
+        guard let data = data["Section\(indexPath.section)"]?[indexPath.row] else { return UITableViewCell() }
+        switch data.type {
+        case .tableViewCell:
+            return setupTableViewCell(for: indexPath, with: data)
+        case .arrowWithTextViewCell:
+            return setupArrowWithTextViewCell(for: indexPath, with: data)
+        case .switchViewCell:
+            return setupSwitchViewCell(for: indexPath, with: data)
+        }
     }
     
-
+    func setupTableViewCell(for indexPath: IndexPath, with data: ModelCell) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier, for: indexPath) as? TableViewCell else { return UITableViewCell() }
+        cell.label.text = data.label
+        cell.imageView?.image = data.icon
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
     
+    func setupArrowWithTextViewCell(for indexPath: IndexPath, with data: ModelCell) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ArrowWithTextViewCell.identifier, for: indexPath) as? ArrowWithTextViewCell else { return UITableViewCell() }
+        cell.label.text = data.label
+        cell.imageView?.image = data.icon
+        cell.labelDescription.text = data.labelDescription
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }
+    
+    func setupSwitchViewCell(for indexPath: IndexPath, with data: ModelCell) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchViewCell.identifier, for: indexPath) as? SwitchViewCell else { return UITableViewCell() }
+        cell.label.text = data.label
+        cell.imageView?.image = data.icon
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print("Нажата ячейка \(data["Section\(indexPath.section)"]?[indexPath.row].label ?? "Отсутствует значение")")
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }

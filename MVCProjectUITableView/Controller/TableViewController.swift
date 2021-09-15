@@ -11,20 +11,18 @@ class TableViewController: UIViewController {
     
     private var tableView: TableView? {
         guard isViewLoaded else { return nil }
-        return view as?  TableView
+        return view as? TableView
     }
-    
-    var model: ModelCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Настройки"
         view = TableView()
-        
     }
 }
 
 private extension TableViewController {
     func configuraView() {
-       
+        tableView?.commonInit()
     }
 }
